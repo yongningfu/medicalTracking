@@ -1,7 +1,7 @@
 
 Application created by [ThinkJS](http://www.thinkjs.org)
 
-项目还没搞好  开始搞
+项目还没搞好  开始搞 2016-09-03
 
 ## Install dependencies
 
