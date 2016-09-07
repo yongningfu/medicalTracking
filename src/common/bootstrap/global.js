@@ -10,3 +10,5 @@
  *     
  * }
  */
+
+global.admins = ['admin'];

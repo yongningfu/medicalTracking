@@ -1,0 +1,10 @@
+
+curl -d "name=535802703@qq.com&password=222222&confirmPassword=222222&email=535802703@qq.com&phone=18826234601" http://127.0.0.1:8360/api/user
+
+curl  http://127.0.0.1:8360/api/user/M_frHVN48bbjqWShfChHpiho3sU9oPOX
+
+curl  http://127.0.0.1:8360/api/position?accessToken=M_frHVN48bbjqWShfChHpiho3sU9oPOX
+
+curl  -d "accessToken=M_frHVN48bbjqWShfChHpiho3sU9oPOX&longitude=113.989832&latitude=33.12323" http://127.0.0.1:8360/api/position
+
+
