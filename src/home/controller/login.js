@@ -27,7 +27,7 @@ export default class extends Base {
       this.cookie("accessToken", userRecord.accessToken);
       return this.success({accessToken: userRecord.accessToken, id: userRecord.id});
     } else {
-      return this.fail(-1, "用户名或者密码错误");
+      return this.fail(1, "用户名或者密码错误");
     }
   }
 }

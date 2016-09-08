@@ -24,6 +24,7 @@ $(function () {
             var password = $(".login_container input[name='password']").val();
             $.post('/login/dologin', {name: name, password: password}, function(data) {
 
+                console.log(data);
                 if (data.errno > 0) {
                     alert(data.errmsg);
                 } else {
