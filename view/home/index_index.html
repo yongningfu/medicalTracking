@@ -1,48 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>New ThinkJS Application</title>
-<style>
-*{padding: 0;margin: 0;font-size: 16px;line-height: 20px;font-family: arial;}
-a, a:visited{color:#337ab7;text-decoration: none;}
-header{padding: 70px 0 70px 0;background-color: #4A6495}
-h1{font-size: 36px;color:#fff;font-weight: normal;}
-code{  padding: 2px 4px;font-size: 90%;color: #c7254e;background-color: #f9f2f4;border-radius: 4px;}
-.content{width: 1000px;margin: auto}
-.wrap{width: 1000px;margin: auto}
-.content{margin-top: 80px;}
-.list{width: 800px;}
-.list .item{position: relative;padding-left: 70px;margin-top: 50px;}
-.list .item .step{position: absolute;width: 36px;height: 36px;top:-3px;left:0;border: 5px solid #4A6495;border-radius: 23px;text-align: center;line-height: 36px;}
-.list .item h2{font-size: 24px;font-weight: normal;}
-.list .item p{line-height: 30px;margin-top: 10px}
-</style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>medicalTracking</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" media="screen" href="/static/css/style.css">-->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+
+    body {
+      /*background-color: #7FBC02;*/
+    }
+    #left {
+      position: fixed;
+      width: 20%;
+      height: 100%;
+      background: whitesmoke;
+      overflow: hidden;
+      /*opacity: 0.5;*/
+    }
+
+    #left .center {
+      margin: 0 auto;
+      padding-top: 30%;;
+      width: 80%;
+      height: 100%;
+      /*background: green;*/
+    }
+
+
+    #left .center  .avator-container {
+
+      width: 130px;
+      height:  130px;
+      margin: 0 auto;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    #left .center  .avator-container img {
+      height: 100%;
+      width:  100%;
+      /*opacity: 1;*/
+    }
+
+    #right {
+      width: 80%;
+      float: right;
+      /*background: green;*/
+    }
+
+
+    #left .center  ul {
+      list-style: none;
+      text-align: center;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    #left .center  ul li {
+      height: 40px;
+    }
+
+
+    #right #allmap {
+      margin: 0 auto;
+      width: 90%;
+      height: 600px;
+      background: greenyellow;
+    }
+
+    #buttonContainr {
+      width: 90%;
+      margin: 0 auto;
+      /*height: 50px;*/
+    }
+    #showMyRoute {
+      margin-top: 10px;
+      width: 200px;
+      height: 60px;
+      float: right;
+      /*background-image: url(/static/img/waitting.gif);*/
+      background-size: 100% 100%;
+      /*margin-top: 20px;*/
+      /*margin-right: 200px;*/
+    }
+
+
+  </style>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=iXliOdR0oLU8Odv0KfZd7tYSjiMVNz1E"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+  <title>批量转换</title>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <h1>A New App Created By ThinkJS</h1>
-    </div>
-  </header>
-  <div class="content">
-    <div class="list">
-      <div class="item">
-        <div class="step">1</div>
-        <h2>Generate Files</h2>
-        <p>Run <code>thinkjs</code> command to create module, controler, model, service and so on. visit <a href="https://thinkjs.org/doc/thinkjs_command.html">https://thinkjs.org/doc/thinkjs_command.html</a> to view more infomation.</p>
+
+<div id="left">
+  <div class="center">
+      <div class="avator-container">
+          <img src="/static/img/avator.jpg" />
       </div>
-      <div class="item">
-        <div class="step">2</div>
-        <h2>Documatation</h2>
-        <p>ThinkJS has html and pdf documents. visit <a href="https://thinkjs.org/doc.html">https://thinkjs.org/doc.html</a></p>
-      </div>
-      <div class="item">
-        <div class="step">3</div>
-        <h2>WebSocket</h2>
-        <p>ThinkJS support <code>socket.io</code> and <code>sockjs</code> WebSocket client and server node. visit <a href="https://thinkjs.org/doc/adapter_websocket.html">https://thinkjs.org/doc/adapter_websocket.html</a></p>
-      </div>
-    </div>
+
+     <ul>
+          <li><a href="#">项目背景</a></li>
+          <li><a href="#">项目进展</a></li>
+          <li><a href="#">项目流程</a></li>
+          <li><a href="#">参与机构</a></li>
+          <li><a href="#">关于我</a></li>
+     </ul>
   </div>
+</div>
+
+<div id="right">
+  <div id="allmap"></div>
+  <div id="buttonContainr">
+    <button type="button" class="btn btn-info" id="showMyRoute">显示我的路径</button>
+  </div>
+  <!--<img src="/static/img/waitting.gif" id="wait">-->
+</div>
+
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.cookie.js"></script>
+<script src="/static/js/index.js"></script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

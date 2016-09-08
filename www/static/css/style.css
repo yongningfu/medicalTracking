@@ -1,0 +1,25 @@
+#particles-js{
+  background-color: #7FBC02;
+  height:100%;
+}
+
+.login_container {
+  /*display: table;*/
+  width: 30%;
+  height: 40%;
+  margin: 0 auto;
+  background: darkgray;
+  opacity: 0.5;
+  left: 35%;
+  top: 30%;
+  border-radius: 10%;
+  position: absolute;
+}
+
+form {
+  margin-top: 18%;
+}
+
+form input {
+  height: 50px;
+}
