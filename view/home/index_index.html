@@ -19,23 +19,21 @@
   <style type="text/css">
 
     body {
-      /*background-color: #7FBC02;*/
+        padding: 20px;
     }
     #left {
       position: fixed;
       width: 20%;
       height: 100%;
-      background: whitesmoke;
+      background: rgba(169, 169, 169, 0.5);
       overflow: hidden;
-      /*opacity: 0.5;*/
     }
 
     #left .center {
       margin: 0 auto;
       padding-top: 30%;;
-      width: 80%;
+      width: 90%;
       height: 100%;
-      /*background: green;*/
     }
 
 
@@ -51,13 +49,11 @@
     #left .center  .avator-container img {
       height: 100%;
       width:  100%;
-      /*opacity: 1;*/
     }
 
     #right {
       width: 80%;
       float: right;
-      /*background: green;*/
     }
 
 
@@ -66,16 +62,22 @@
       text-align: center;
       padding-left: 0;
       margin-top: 20px;
+
     }
 
     #left .center  ul li {
-      height: 40px;
+        height: 40px;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    #left .center  ul li a {
+        color: white;
     }
 
 
     #right #allmap {
       margin: 0 auto;
-      width: 90%;
+      width: 96%;
       height: 600px;
       background: greenyellow;
     }
@@ -86,20 +88,44 @@
       /*height: 50px;*/
     }
     #showMyRoute {
-      margin-top: 10px;
-      width: 200px;
-      height: 60px;
-      float: right;
-      /*background-image: url(/static/img/waitting.gif);*/
-      background-size: 100% 100%;
-      /*margin-top: 20px;*/
-      /*margin-right: 200px;*/
+        margin-top: 10px;
+        float: right;
+    }
+
+    #showheapMap {
+        margin-top: 10px;
+        margin-right: 10px;
+        float: right;
+    }
+
+
+    .dotting {
+        display: inline-block; min-width: 2px; min-height: 2px;
+        box-shadow: 2px 0 currentColor, 6px 0 currentColor, 10px 0 currentColor;
+        -webkit-animation: dot 4s infinite step-start both;
+        animation: dot 1s infinite step-start both;
+        *zoom: expression(this.innerHTML = '...'); /* IE7 */
+    }
+    .dotting:before { content: '...'; } /* IE8 */
+    .dotting::before { content: ''; }
+    :root .dotting { margin-right: 8px; } /* IE9+,FF,CH,OP,SF */
+
+    @-webkit-keyframes dot {
+        25% { box-shadow: none; }
+        50% { box-shadow: 2px 0 currentColor; }
+        75% { box-shadow: 2px 0 currentColor, 6px 0 currentColor; }
+    }
+    @keyframes dot {
+        25% { box-shadow: none; }
+        50% { box-shadow: 2px 0 currentColor; }
+        75% { box-shadow: 2px 0 currentColor, 6px 0 currentColor; }
     }
 
 
   </style>
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=iXliOdR0oLU8Odv0KfZd7tYSjiMVNz1E"></script>
   <script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
   <title>批量转换</title>
 </head>
 <body>
@@ -111,11 +137,13 @@
       </div>
 
      <ul>
-          <li><a href="#">项目背景</a></li>
-          <li><a href="#">项目进展</a></li>
-          <li><a href="#">项目流程</a></li>
-          <li><a href="#">参与机构</a></li>
-          <li><a href="#">关于我</a></li>
+          <li class="btn btn-primary"><a href="#">项目背景</a></li>
+          <li class="btn btn-primary"><a href="#">项目进展</a></li>
+          <li class="btn btn-primary"><a href="#">项目流程</a></li>
+          <li class="btn btn-primary"><a href="#">参与机构</a></li>
+          <li class="btn btn-primary"><a href="#" >关于我</a></li>
+          <li class="btn btn-primary"><a href="/logout">退出登录</a></li>
+
      </ul>
   </div>
 </div>
@@ -123,7 +151,8 @@
 <div id="right">
   <div id="allmap"></div>
   <div id="buttonContainr">
-    <button type="button" class="btn btn-info" id="showMyRoute">显示我的路径</button>
+      <button type="button" class="btn " id="showMyRoute">显示我的路径<span class=""></button>
+      <button type="button" class="btn " id="showheapMap">显示热力图<span class=""></span></button>
   </div>
   <!--<img src="/static/img/waitting.gif" id="wait">-->
 </div>

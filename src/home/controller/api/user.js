@@ -10,7 +10,7 @@ export default class extends Base {
     /**
      * 查找有用户资料
      * */
-    async getAction() {
+        async getAction() {
         var data;
         //资源id存在的时候
         if (this.id) {
@@ -35,7 +35,7 @@ export default class extends Base {
         let [name, email, phone] = await Promise.all([
             this.modelInstance.where({name: postData["name"]}).find(),
                 this.modelInstance.where({email: postData["email"]}).find(),
-                    this.modelInstance.where({name: postData["phone"]}).find()]);
+                    this.modelInstance.where({phone: postData["phone"]}).find()]);
 
         if (think.isEmpty(name) && think.isEmpty(email) && think.isEmpty(phone)) {
             postData.accessToken = think.uuid();

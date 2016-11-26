@@ -30,4 +30,16 @@ export default class extends Base {
       return this.fail(1, "用户名或者密码错误");
     }
   }
+
+  /**
+   * dologout
+   * */
+  async logoutAction() {
+
+    this.cookie("id", null);
+    this.cookie("accessToken", null);
+    await this.session("userInfo", null);
+    return this.redirect('/login');
+  }
+
 }
